@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Совместный Telegram-канал — Коммерческое предложение</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: #0a0a0a;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #111;
+        }
+
+        .section {
+            padding: 80px 60px;
+            border-bottom: 1px solid #222;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            color: white;
+            text-align: center;
+            padding: 120px 60px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #3390ec, #229ED9);
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 30px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #b0b0b0;
+            font-weight: 300;
+        }
+
+        .hero .highlight {
+            background: rgba(51, 144, 236, 0.1);
+            border: 1px solid rgba(51, 144, 236, 0.3);
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 40px;
+            font-size: 1.15em;
+            color: #e0e0e0;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            color: #fff;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: #3390ec;
+        }
+
+        .section.dark {
+            background: #0a0a0a;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .expertise-item {
+            background: #1a1a1a;
+            padding: 40px 30px;
+            border-radius: 8px;
+            border: 1px solid #222;
+            transition: all 0.3s;
+        }
+
+        .expertise-item:hover {
+            border-color: #3390ec;
+            transform: translateY(-5px);
+        }
+
+        .expertise-item h3 {
+            font-size: 1.1em;
+            color: #e0e0e0;
+            font-weight: 500;
+            line-height: 1.5;
+        }
+
+        .flow-diagram {
+            background: #1a1a1a;
+            padding: 60px 40px;
+            border-radius: 8px;
+            margin: 50px 0;
+            border: 1px solid #222;
+        }
+
+        .flow-steps {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .flow-step {
+            background: #0a0a0a;
+            padding: 40px 30px;
+            border-radius: 8px;
+            flex: 1;
+            min-width: 220px;
+            border: 1px solid #333;
+            text-align: center;
+        }
+
+        .flow-step h3 {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #3390ec;
+            font-weight: 600;
+        }
+
+        .flow-step p {
+            font-size: 0.95em;
+            color: #b0b0b0;
+        }
+
+        .arrow {
+            font-size: 2em;
+            color: #3390ec;
+            font-weight: 300;
+        }
+
+        .result-box {
+            background: linear-gradient(135deg, #3390ec 0%, #229ED9 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .result-box h3 {
+            font-size: 2em;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .result-box ul {
+            list-style: none;
+            font-size: 1.15em;
+        }
+
+        .result-box li {
+            margin: 15px 0;
+        }
+
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .comparison-card {
+            padding: 40px;
+            border-radius: 8px;
+            background: #1a1a1a;
+            border: 1px solid #222;
+        }
+
+        .comparison-card.problem {
+            border-left: 3px solid #ef4444;
+        }
+
+        .comparison-card.solution {
+            border-left: 3px solid #10b981;
+        }
+
+        .comparison-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .comparison-card.problem h3 {
+            color: #ef4444;
+        }
+
+        .comparison-card.solution h3 {
+            color: #10b981;
+        }
+
+        .comparison-card ul {
+            list-style: none;
+        }
+
+        .comparison-card li {
+            margin: 15px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #b0b0b0;
+        }
+
+        .comparison-card.problem li:before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #ef4444;
+            font-weight: bold;
+        }
+
+        .comparison-card.solution li:before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        .roles-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 50px 0;
+        }
+
+        .role-card {
+            background: #1a1a1a;
+            border-radius: 8px;
+            padding: 40px;
+            border: 1px solid #222;
+        }
+
+        .role-card.blogger {
+            border-top: 3px solid #a855f7;
+        }
+
+        .role-card.us {
+            border-top: 3px solid #3390ec;
+        }
+
+        .role-card h3 {
+            font-size: 1.6em;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .role-card.blogger h3 {
+            color: #a855f7;
+        }
+
+        .role-card.us h3 {
+            color: #3390ec;
+        }
+
+        .role-card ul {
+            list-style: none;
+        }
+
+        .role-card li {
+            margin: 15px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #b0b0b0;
+        }
+
+        .role-card li:before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #3390ec;
+            font-weight: bold;
+        }
+
+        .investment-box {
+            background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .investment-box h4 {
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .investment-box .amount {
+            font-size: 3em;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .revenue-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 50px 0;
+            border: 1px solid #222;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .revenue-table thead {
+            background: #1a1a1a;
+        }
+
+        .revenue-table th {
+            padding: 25px 20px;
+            text-align: left;
+            font-size: 1em;
+            font-weight: 600;
+            color: #3390ec;
+            border-bottom: 1px solid #222;
+        }
+
+        .revenue-table td {
+            padding: 25px 20px;
+            border-bottom: 1px solid #222;
+            color: #b0b0b0;
+        }
+
+        .revenue-table tbody tr {
+            background: #111;
+        }
+
+        .revenue-table tbody tr:hover {
+            background: #1a1a1a;
+        }
+
+        .revenue-table a {
+            color: #3390ec;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .revenue-table a:hover {
+            text-decoration: underline;
+        }
+
+        .revenue-table .highlight-row {
+            background: rgba(51, 144, 236, 0.1) !important;
+        }
+
+        .revenue-table .highlight-row td {
+            border-top: 1px solid #3390ec;
+            border-bottom: 1px solid #3390ec;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .payback-chart {
+            background: #1a1a1a;
+            padding: 50px;
+            border-radius: 8px;
+            margin: 50px 0;
+            text-align: center;
+            border: 1px solid #222;
+        }
+
+        .payback-chart h3 {
+            margin-bottom: 30px;
+            color: #3390ec;
+            font-size: 1.8em;
+            font-weight: 600;
+        }
+
+        .payback-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-item {
+            padding: 30px;
+            background: #0a0a0a;
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            color: #888;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-value {
+            font-size: 2em;
+            font-weight: 700;
+            color: #3390ec;
+        }
+
+        .stat-item.highlight .stat-value {
+            color: #10b981;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 50px 0;
+        }
+
+        .benefit-item {
+            background: #1a1a1a;
+            padding: 35px 30px;
+            border-radius: 8px;
+            border: 1px solid #222;
+            border-left: 3px solid #3390ec;
+            transition: all 0.3s;
+        }
+
+        .benefit-item:hover {
+            transform: translateX(5px);
+            border-left-color: #10b981;
+        }
+
+        .benefit-item h4 {
+            color: #fff;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        .benefit-item p {
+            color: #b0b0b0;
+            line-height: 1.6;
+        }
+
+        .why-us-content {
+            background: #1a1a1a;
+            padding: 50px;
+            border-radius: 8px;
+            border: 1px solid #222;
+        }
+
+        .why-us-content h3 {
+            font-size: 1.6em;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .problem-section h3 {
+            color: #ef4444;
+        }
+
+        .solution-section {
+            margin-top: 50px;
+        }
+
+        .solution-section h3 {
+            color: #10b981;
+        }
+
+        .why-us-content ul {
+            list-style: none;
+        }
+
+        .why-us-content li {
+            margin: 15px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #b0b0b0;
+        }
+
+        .problem-section li:before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #ef4444;
+            font-weight: bold;
+        }
+
+        .solution-section li:before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            color: white;
+            text-align: center;
+            padding: 100px 60px;
+        }
+
+        .cta-section h2::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .cta-section .win-win {
+            font-size: 2em;
+            margin: 40px 0;
+            font-weight: 600;
+            color: #3390ec;
+        }
+
+        .cta-section .shares {
+            font-size: 1.3em;
+            color: #b0b0b0;
+            margin-bottom: 40px;
+        }
+
+        .cta-section .steps {
+            background: rgba(51, 144, 236, 0.05);
+            border: 1px solid rgba(51, 144, 236, 0.2);
+            padding: 40px 50px;
+            border-radius: 8px;
+            margin: 50px auto;
+            text-align: left;
+            max-width: 600px;
+        }
+
+        .cta-section .steps h3 {
+            margin-bottom: 25px;
+            font-size: 1.4em;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .cta-section .steps ol {
+            font-size: 1.15em;
+            margin-left: 25px;
+            color: #b0b0b0;
+        }
+
+        .cta-section .steps li {
+            margin: 18px 0;
+        }
+
+        .contact-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #3390ec 0%, #229ED9 100%);
+            color: white;
+            padding: 20px 60px;
+            border-radius: 6px;
+            font-size: 1.2em;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 40px;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .contact-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(51, 144, 236, 0.3);
+        }
+
+        .contact-info {
+            margin-top: 40px;
+            font-size: 1.15em;
+            color: #b0b0b0;
+        }
+
+        .contact-info strong {
+            color: #3390ec;
+            font-weight: 600;
+        }
+
+        @media print {
+            body {
+                background: white;
+                color: #000;
+            }
+            .container {
+                background: white;
+            }
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 30px;
+            }
+
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2em;
+            }
+
+            .section {
+                padding: 50px 30px;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            .flow-steps {
+                flex-direction: column;
+            }
+
+            .arrow {
+                transform: rotate(90deg);
+            }
+
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+
+            .roles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .revenue-table {
+                font-size: 0.85em;
+            }
+
+            .revenue-table th,
+            .revenue-table td {
+                padding: 15px 10px;
+            }
+
+            .cta-section {
+                padding: 60px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Блок 1: Заголовок + краткая суть -->
+        <div class="hero">
+            <h1>Создаём вместе миллионный Telegram-канал</h1>
+            <p class="subtitle">Превращаем вашу аудиторию в прибыльный бизнес-актив</p>
+            <div class="highlight">
+                Канал будет заточен под рекламу крупных брендов<br>
+                (Яндекс, ВТБ, Сбербанк, Тинькофф)<br>
+                <strong>Это обеспечит стабильную монетизацию</strong>
+            </div>
+        </div>
+
+        <!-- Блок 2: Кто мы -->
+        <div class="section dark">
+            <h2>Кто мы</h2>
+            <div class="expertise-grid">
+                <div class="expertise-item">
+                    <h3>Большой опыт в создании и развитии Telegram-каналов</h3>
+                </div>
+                <div class="expertise-item">
+                    <h3>Сеть миллионных каналов</h3>
+                </div>
+                <div class="expertise-item">
+                    <h3>Одни из крупных игроков на рынке</h3>
+                </div>
+                <div class="expertise-item">
+                    <h3>Точно знаем, как развивать каналы и монетизировать контент</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Блок 3: Суть предложения (РАБОЧАЯ СХЕМА) -->
+        <div class="section">
+            <h2>Как это работает</h2>
+            <div class="flow-diagram">
+                <div class="flow-steps">
+                    <div class="flow-step">
+                        <h3>ВАШ КАНАЛ<br>(с лицом)</h3>
+                        <p>200-300K подписчиков<br>Читаемость ~20%</p>
+                    </div>
+                    <div class="arrow">→</div>
+                    <div class="flow-step">
+                        <h3>НОВЫЙ СОВМЕСТНЫЙ КАНАЛ<br>(без лица)</h3>
+                        <p>Вы переливаете свою аудиторию</p>
+                    </div>
+                    <div class="arrow">+</div>
+                    <div class="flow-step">
+                        <h3>НАШ ТРАФИК</h3>
+                        <p>Мы добавляем 700K подписчиков<br>Мотивированный трафик<br>9₽/подписчик</p>
+                    </div>
+                </div>
+
+                <div class="result-box">
+                    <h3>= МИЛЛИОННЫЙ КАНАЛ</h3>
+                    <ul>
+                        <li>1M подписчиков</li>
+                        <li>Читаемость 10-15% (топовый показатель)</li>
+                        <li>Заточен под крупные бренды</li>
+                        <li>Готовый бизнес-актив для монетизации</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Блок 4: Почему БЕЗ ЛИЦА = больше денег -->
+        <div class="section dark">
+            <h2>Почему канал БЕЗ ЛИЦА = больше денег</h2>
+            <div class="comparison">
+                <div class="comparison-card problem">
+                    <h3>Проблема контента С ЛИЦОМ</h3>
+                    <ul>
+                        <li>Привязан к личности = сложно масштабировать</li>
+                        <li>Хуже монетизируется через рекламу</li>
+                        <li>Невозможно продать как отдельный бизнес</li>
+                        <li>Ограничения по форматам рекламы</li>
+                        <li>Крупные бренды предпочитают каналы без привязки к личности</li>
+                    </ul>
+                </div>
+                <div class="comparison-card solution">
+                    <h3>Решение — канал БЕЗ ЛИЦА</h3>
+                    <ul>
+                        <li>Это БИЗНЕС-АКТИВ, не привязанный к личности</li>
+                        <li>Лучше монетизируется (больше форматов рекламы)</li>
+                        <li>Заточен под крупные бренды (Яндекс, ВТБ, Сбербанк)</li>
+                        <li>Можно продать, переименовать, масштабировать</li>
+                        <li>Гибкость в работе с брендами</li>
+                        <li>Стабильная монетизация</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Блок 5: Что делает блогер / Что делаем мы -->
+        <div class="section">
+            <h2>Кто что делает</h2>
+            <div class="roles-grid">
+                <div class="role-card blogger">
+                    <h3>БЛОГЕР</h3>
+                    <ul>
+                        <li>Создаёт совместный канал</li>
+                        <li>Переливает свою аудиторию (200-300K) со своих основных ресурсов</li>
+                        <li>Вкладывается в закупку трафика: 3,15M₽ (половина от 700K × 9₽)</li>
+                        <li>Получает прибыль каждый месяц</li>
+                    </ul>
+                </div>
+                <div class="role-card us">
+                    <h3>МЫ БЕРЁМ НА СЕБЯ</h3>
+                    <ul>
+                        <li>Вкладываемся в закупку трафика: 3,15M₽ (вторая половина)</li>
+                        <li>Создание и ведение контента</li>
+                        <li>Брендинг проекта</li>
+                        <li>Продажи рекламы</li>
+                        <li>Работа с клиентами (создание рекламных материалов)</li>
+                        <li>Все бизнес-процессы канала</li>
+                        <li>Доступ к нашей базе клиентов и сети каналов</li>
+                        <li>Экспертиза в развитии и монетизации</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="investment-box">
+                <h4>Итого инвестиции в трафик</h4>
+                <div class="amount">6,3M₽</div>
+                <p style="font-size: 1.2em; margin-top: 15px; opacity: 0.9;">По 3,15M₽ каждый (50/50)</p>
+            </div>
+        </div>
+
+        <!-- Блок 6: Цифры доходности — РЕАЛЬНЫЕ ПРИМЕРЫ -->
+        <div class="section dark">
+            <h2>Реальные цифры с рынка</h2>
+            <table class="revenue-table">
+                <thead>
+                    <tr>
+                        <th>Канал</th>
+                        <th>Подписчики</th>
+                        <th>Доход/месяц</th>
+                        <th>Ссылка</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Трендач</td>
+                        <td>~1M</td>
+                        <td>~4,5M₽</td>
+                        <td><a href="https://t.me/trendach" target="_blank">t.me/trendach</a></td>
+                    </tr>
+                    <tr>
+                        <td>Сегодня в тренде</td>
+                        <td>~1M</td>
+                        <td>10M₽+</td>
+                        <td><a href="https://t.me/trends" target="_blank">t.me/trends</a></td>
+                    </tr>
+                    <tr>
+                        <td>Че по трендам</td>
+                        <td>~1M</td>
+                        <td>6-7M₽</td>
+                        <td><a href="https://t.me/trendswhat" target="_blank">t.me/trendswhat</a></td>
+                    </tr>
+                    <tr>
+                        <td>Ты в тренде или уходи</td>
+                        <td>~1M</td>
+                        <td>~5M₽</td>
+                        <td><a href="https://t.me/trendsetter" target="_blank">t.me/trendsetter</a></td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>НАШ ПРОЕКТ</strong> (прогноз)</td>
+                        <td><strong>1M</strong></td>
+                        <td><strong>5-7M₽</strong></td>
+                        <td><strong>Читаемость 10-15%</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="payback-chart">
+                <h3>Окупаемость инвестиций</h3>
+                <p style="font-size: 1.1em; color: #b0b0b0; margin-bottom: 30px;">Ваша инвестиция возвращается уже через 1-2 месяца</p>
+                <div class="payback-stats">
+                    <div class="stat-item">
+                        <div class="stat-label">Инвестиция</div>
+                        <div class="stat-value">3,15M₽</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Ваша доля (50%)</div>
+                        <div class="stat-value">2,5-3,5M₽/мес</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Окупаемость</div>
+                        <div class="stat-value">1-2 мес</div>
+                    </div>
+                    <div class="stat-item highlight">
+                        <div class="stat-label">Далее</div>
+                        <div class="stat-value">Чистая прибыль</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Блок 7: Почему это выгодно БЛОГЕРУ -->
+        <div class="section">
+            <h2>Почему это выгодно вам</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <h4>Пассивный доход</h4>
+                    <p>Вы просто перелили аудиторию — всё остальное делаем мы</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>Новый актив</h4>
+                    <p>Отдельный бизнес, который можно продать</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>Масштабируемость</h4>
+                    <p>Не привязан к вашему лицу</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>Стабильная монетизация</h4>
+                    <p>Работа с крупными брендами</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>Готовые клиенты</h4>
+                    <p>Доступ к нашей базе и сети каналов</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>Быстрая окупаемость</h4>
+                    <p>Инвестиции возвращаются за 1-2 месяца</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>Наша экспертиза</h4>
+                    <p>Работаем с миллионниками, знаем рынок</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Блок 8: Почему это выгодно НАМ -->
+        <div class="section dark">
+            <h2>Почему это выгодно нам</h2>
+            <div class="why-us-content">
+                <div class="problem-section">
+                    <h3>Проблема рынка</h3>
+                    <ul>
+                        <li>Качественная аудитория подорожала в десятки раз</li>
+                        <li>Море каналов с мёртвым трафиком</li>
+                        <li>Низкая эффективность рекламы на большинстве площадок</li>
+                    </ul>
+                </div>
+
+                <div class="solution-section">
+                    <h3>Наше решение</h3>
+                    <ul>
+                        <li>Ваша живая аудитория (20% читаемость) + наш массовый трафик</li>
+                        <li>Итоговая читаемость 10-15% = конкурентное преимущество</li>
+                        <li>Высокая активность = довольные клиенты = повторные продажи</li>
+                        <li>Уникальное предложение для наших рекламодателей</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Блок 9: Win-Win и следующие шаги -->
+        <div class="cta-section">
+            <h2>Давайте создадим это вместе</h2>
+            <div class="win-win">Win-Win на всех этапах</div>
+            <p class="shares">Доли: 50/50 (возможны варианты обсуждения)</p>
+
+            <div class="steps">
+                <h3>Что дальше</h3>
+                <ol>
+                    <li>Обсудим детали и цифры</li>
+                    <li>Создадим совместный канал</li>
+                    <li>Запустим перелив трафика с ваших ресурсов</li>
+                    <li>Закупим дополнительный трафик</li>
+                    <li>Начинаем зарабатывать</li>
+                </ol>
+            </div>
+
+            <a href="https://t.me/dponomareff" class="contact-button">Обсудить проект</a>
+            <div class="contact-info">
+                <strong>Даниил Пономарев</strong><br>
+                <strong>@dponomareff</strong>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
